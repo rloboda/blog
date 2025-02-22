@@ -11,12 +11,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Install Heroku CLI
+        run: |
+          wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
       - name: Deploy Backend to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: blog-backend
-          heroku_email: lobodaroman777@gmail.com
+          heroku_app_name: your-backend-app-name
+          heroku_email: your-heroku-email@example.com
           usedocker: true
 
   deploy-frontend:
@@ -24,10 +29,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Install Heroku CLI
+        run: |
+          wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
       - name: Deploy Frontend to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: blog-frontend
-          heroku_email: lobodaroman777@gmail.com
+          heroku_app_name: your-frontend-app-name
+          heroku_email: your-heroku-email@example.com
           usedocker: true
