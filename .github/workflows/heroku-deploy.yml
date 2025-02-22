@@ -18,7 +18,8 @@ jobs:
           
       - name: Build Docker Image (Backend)
         run: |
-          docker build -t backend-image -f backend/Dockerfile .
+          heroku container:login
+          docker build -t registry.heroku.com/blog-backend-app/web -f backend/Dockerfile .
 
       - name: Deploy Backend to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
@@ -39,7 +40,8 @@ jobs:
 
       - name: Build Docker Image (Frontend)
         run: |
-          docker build -t frontend-image -f frontend/Dockerfile .
+          heroku container:login
+          docker build -t registry.heroku.com/your-frontend-app-name/client -f frontend/Dockerfile .
 
       - name: Deploy Frontend to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
