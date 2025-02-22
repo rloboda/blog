@@ -40,3 +40,4 @@ jobs:
           heroku_app_name: blog-frontend-app
           heroku_email: lobodaroman777@gmail.com
           usedocker: true
+          
