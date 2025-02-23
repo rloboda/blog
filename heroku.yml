@@ -1,7 +1,7 @@
 build:
   docker:
-    web: backend/Dockerfile
-    client: frontend/Dockerfile
+    web: fronend/Dockerfile
+    client: backend/Dockerfile
 run:
   web: gunicorn app:app --bind $PORT
   client: serve -s frontend/build -l $PORT
