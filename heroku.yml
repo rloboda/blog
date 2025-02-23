@@ -1,6 +1,6 @@
 build:
   docker:
-    web: fronend/Dockerfile
+    web: frontend/Dockerfile
     client: backend/Dockerfile
 run:
   web: gunicorn app:app --bind $PORT
